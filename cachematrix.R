@@ -7,6 +7,10 @@
 makeCacheMatrix <- function(x = matrix()) {
  ## inverse of a matrix stored in cache i
   i <- NULL
+  print(environment())
+  +         evn <- environment()
+  +         print(parent.env(evn))
+  
   ## sets the matrix and uses the "<<- operator" to avoid lexical scoping
   set <- function(y) {
     +      x <<- y
@@ -21,6 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 +
  # gets the inverse of a matrix
   getinverse <- function() i
+            getevn<- function() environment()
   +         list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
   
 =======
